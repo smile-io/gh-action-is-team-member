@@ -18,6 +18,7 @@ async function main() {
     })
   );
   const isMember = members.some(({ login }) => login === username);
+  console.log(`Is ${username} member of ${team_slug}? ${isMember}`)
   core.setOutput("result", isMember ? "true" : "false");
 }
 
