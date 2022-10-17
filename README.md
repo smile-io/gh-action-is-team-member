@@ -1,4 +1,8 @@
-# GH action is team member
+# Smile Internal Action: check if user is member of team organisation
+
+Smile Internal Github Action to publish an application helm chart to Smile's helm repository.
+
+Note: This action is NOT intended for use outside of Smile, and no support will be offered for such use. External pull requests will not be accepted.
 
 This action returns true or false if a member is inside a gh team.
 
