@@ -1,12 +1,18 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
 
-const org = core.getInput("organization", { required: true });
-const username = core.getInput("username", { required: true });
-const token = core.getInput("token", { required: true });
-const team_slug = core.getInput("team_slug", { required: true });
-const pull_number = core.getInput("pull_request_number", { required: true });
-const repo = core.getInput("repository", { required: true });
+// const org = core.getInput("organization", { required: true });
+// const username = core.getInput("username", { required: true });
+// const token = core.getInput("token", { required: true });
+// const team_slug = core.getInput("team_slug", { required: true });
+
+
+const token = "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"
+const team_slug = "site-reliability-engineers"
+const username = "xurtasun"
+const org = "smile-io"
+const pull_number = "1580"
+const repo = "smile-ui"
 
 const regex = /(?=\w)[A-z]*[-](?=\D*\d)[0-9]*/
 
@@ -26,6 +32,8 @@ async function main() {
   core.setOutput("result", isMember ? "true" : "false");
   const {data} = await getPR()
   let jiraIssue = parse(data.body)
+  if (jiraIssue == null) jiraIssue = parse(data.title)
+
   if (jiraIssue == null) jiraIssue = parse(data.head.ref)
   core.setOutput("jiraTicket", jiraIssue ? jiraIssue[0] : "JIRA-404");
   console.log(`JIRA ISSUE: ${jiraIssue ? jiraIssue[0] : "JIRA-404"}`)
