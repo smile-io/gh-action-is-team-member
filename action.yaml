@@ -24,6 +24,9 @@ inputs:
 outputs:
   result:
     description: 'The result in either true or false'
+  jiraIssue:
+    description: 'The jira issue number'
+
 runs:
   using: 'node16'
   main: 'src/main.js'
