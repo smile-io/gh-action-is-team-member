@@ -24,11 +24,23 @@ This action returns true or false if a member is inside a gh team.
 
 **Required** The team slug you want to check the username.
 
+## `pull_request_number`
+
+**Required** Pull request number.
+
+## `repository`
+
+**Required** Pull request repository.
+
 ## Outputs
 
 ## `result`
 
 The result in either true or false.
+
+## `jiraIssue`
+
+The jira issue number.
 
 ## Example usage
 
@@ -38,3 +50,5 @@ The result in either true or false.
         username: 'username'
         token: {{ secrets.GH_TOKEN }}
         team_slug: 'team'
+        repository: 'repository'
+        pull_request_number: 'JIRA-404'

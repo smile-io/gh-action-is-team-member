@@ -29,7 +29,7 @@ async function main() {
   if (jiraIssue == null) jiraIssue = parse(data.title)
 
   if (jiraIssue == null) jiraIssue = parse(data.head.ref)
-  core.setOutput("jiraTicket", jiraIssue ? jiraIssue[0] : "JIRA-404");
+  core.setOutput("jiraIssue", jiraIssue ? jiraIssue[0] : "JIRA-404");
   console.log(`JIRA ISSUE: ${jiraIssue ? jiraIssue[0] : "JIRA-404"}`)
 }
 

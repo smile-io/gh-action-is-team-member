@@ -13,7 +13,13 @@ inputs:
     description: 'GitHub access token.'
     required: true
   team_slug:
-    description: 'The team slug you want to check the username'
+    description: 'The team slug you want to check the username.'
+    required: true
+  pull_request_number:
+    description: 'Pull request number.'
+    required: true
+  repository:
+    description: 'Pull request repository.'
     required: true
 outputs:
   result:
