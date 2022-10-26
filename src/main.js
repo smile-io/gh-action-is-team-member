@@ -26,9 +26,9 @@ async function main() {
   core.setOutput("result", isMember ? "true" : "false");
   const {data} = await getPR()
   let jiraIssue = null
-  if (data.hasOwnProperty('body') && data.body != null) jiraIssue = parse(data.body)
   if (jiraIssue == null) jiraIssue = parse(data.title)
   if (jiraIssue == null) jiraIssue = parse(data.head.ref)
+  if (data.hasOwnProperty('body') && data.body != null) jiraIssue = parse(data.body)
   core.setOutput("jiraIssue", jiraIssue ? jiraIssue[0] : "JIRA-404");
   console.log(`JIRA ISSUE: ${jiraIssue ? jiraIssue[0] : "JIRA-404"}`)
 }
